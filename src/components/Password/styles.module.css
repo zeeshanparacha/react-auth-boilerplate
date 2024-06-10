@@ -1,0 +1,53 @@
+.container {
+  position: relative;
+}
+
+.password {
+  height: 45px;
+  width: 100%;
+  border: 1.5px solid #e7f0f7;
+  border-radius: 8px;
+  color: #000000;
+  font-size: 14px;
+  padding: 14px 50px 14px 14px;
+}
+
+.password:focus {
+  border-color: #fc794b;
+}
+
+.container span {
+  position: absolute;
+  right: 15px;
+  top: 3px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.validation_container {
+  margin-top: -10px;
+}
+
+.validation_container .check {
+  width: 10px;
+  height: 10px;
+  margin-right: 6px;
+  fill: green;
+}
+
+.validation_container .cross {
+  width: 8px;
+  height: 8px;
+  margin-right: 6px;
+  fill: red;
+}
+
+.validations {
+  display: flex;
+  align-items: center;
+  margin: 10px 0px;
+}
+.validations p {
+  font-size: 12px;
+  color: #838383;
+}

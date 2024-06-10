@@ -1,0 +1,10 @@
+.button {
+    text-transform: capitalize;
+    color: #2d2d2d;
+    font-size: 14px;
+    font-weight: 700;
+    background-color: #fc794b;
+    height: 45px;
+    width: 100%;
+    border-radius: 8px;
+}

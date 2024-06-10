@@ -1,0 +1,33 @@
+.container {
+    width: 550px;
+    background-color: #fff;
+    height: fit-content;
+}
+
+.container span {
+    margin: 8px 0px;
+}
+.container input {
+    margin-bottom: 15px;
+}
+
+.container button {
+    margin-top: 25px;
+}
+.container h1 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 35px;
+}
+.create_account {
+    text-align: right;
+    font-size: 13px;
+    margin-top: 15px;
+    color: #838383;
+}
+
+.create_account span {
+    color: #fc794b;
+    cursor: pointer;
+    font-weight: 700;
+}
