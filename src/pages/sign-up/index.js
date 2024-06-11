@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import Textbox from "../../components/Textbox";
-import Password from "../../components/Password";
-import Label from "../../components/Label";
-import Button from "../../components/Button";
-import Notify from "../../components/Notify";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { handleValidations } from "../../utils";
+import { useNavigate } from "react-router-dom";
+import Button from "../../components/Button";
+import Label from "../../components/Label";
+import Notify from "../../components/Notify";
+import Password from "../../components/Password";
+import Textbox from "../../components/Textbox";
 import { callSignUp } from "../../store/effects.js/users";
+import { handleValidations } from "../../utils";
 
-import styles from "./styles.module.css";
 import "../../index.css";
+import styles from "./styles.module.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
