@@ -44,7 +44,7 @@ const SignIn = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Sign Up</h1>
+      <h1>Sign In</h1>
 
       <div className={styles.feilds}>
         <Label label={"email"} />
