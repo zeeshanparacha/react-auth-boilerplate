@@ -1,48 +1,99 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Textbox from "../../components/Textbox";
 import Password from "../../components/Password";
-
 import Label from "../../components/Label";
 import Button from "../../components/Button";
+import Notify from "../../components/Notify";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { handleValidations } from "../../utils";
+import { callSignUp } from "../../store/effects.js/users";
+
 import styles from "./styles.module.css";
 import "../../index.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const [signUpData, setSignUpData] = useState({
+  const dispatch = useDispatch();
+
+  const { loading, error, user: { token, message } } = useSelector((state) => state.users) || {};
+
+  const [SignUpData, setSignUpData] = useState({
     username: "",
     email: "",
     password: "",
   });
 
-  const _handleChange = (event) => {
-    setSignUpData({ ...signUpData, [event.target.name]: event.target.value });
+  const [errors, setErrors] = useState({});
+
+  const _handleChange = (event, isValid) => {
+    setSignUpData({ ...SignUpData, [event.target.name]: event.target.value });
+
+    if (event.target.name === "password") {
+      if (!isValid) {
+        setErrors({ ...errors, password: "Invalid password!" });
+        return;
+      }
+      setErrors({ ...errors, password: "" });
+    }
   };
 
-  const _handlePasswordChange = (event,isValid) => {
-    setSignUpData({ ...signUpData, [event.target.name]: event.target.value });
-  }
+  const _handleSubmit = () => {
+    const newErrors = handleValidations(SignUpData, errors);
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+    setErrors({});
+    dispatch(callSignUp(SignUpData, navigate));
+  };
 
-  const { username, email, password } = signUpData;
+  const { username, email, password } = SignUpData;
 
   return (
     <div className={styles.container}>
       <h1>Sign Up</h1>
 
-      <Label label={"username"} />
-      <Textbox name="username" onChange={_handleChange} value={username} />
+      <Notify
+        type={token ? "success" : "error"}
+        message={token ? message : error}
+      />
 
-      <Label label={"email"} />
-      <Textbox name="email" onChange={_handleChange} value={email} />
+      <div className={styles.feilds}>
+        <Label label={"username"} />
+        <Textbox
+          name="username"
+          onChange={_handleChange}
+          value={username}
+          error={errors}
+        />
+      </div>
 
-      <Label label={"password"} />
-      <Password name="password" onChange={_handlePasswordChange} value={password} enableValidations={true} />
+      <div className={styles.feilds}>
+        <Label label={"email"} />
+        <Textbox
+          name="email"
+          onChange={_handleChange}
+          value={email}
+          error={errors}
+        />
+      </div>
 
-      <Button label={"Sign Up"} />
+      <div className={styles.feilds}>
+        <Label label={"password"} />
+        <Password
+          name="password"
+          onChange={_handleChange}
+          value={password}
+          enableValidations={true}
+          error={errors}
+        />
+      </div>
+
+      <Button label={"Sign Up"} onClick={_handleSubmit} loading={loading} disabled={token} />
 
       <p className={styles.create_account}>
-        Already have an account?{" "}
+        Already have an account?
         <span onClick={() => navigate("/")}>Sign In</span>
       </p>
     </div>

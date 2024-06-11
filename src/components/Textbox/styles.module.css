@@ -1,3 +1,10 @@
+.container p {
+    font-size: 11px;
+    margin-top: 7px;
+    color: #CE4546;
+    margin-left: 2px;
+}
+
 .input {
     height: 45px;
     width: 100%;
@@ -8,6 +15,11 @@
     font-size: 14px;
 }
 
-.input:focus{
-    border-color: #fc794b;
+.input:focus {
+    border-color: #6f6d6c7d;
+}
+
+.error input,
+.error :focus {
+    border-color: #ce454699;
 }

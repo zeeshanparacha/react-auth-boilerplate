@@ -1,0 +1,50 @@
+<svg width="48" height="24" viewBox="0 0 48 24" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .spinner_nOfF {
+      animation: spinner_qtyZ 2s cubic-bezier(0.36, 0.6, 0.31, 1) infinite;
+       fill: #2d2d2d;
+    }
+
+    .spinner_fVhf {
+      animation-delay: -0.5s;
+    }
+
+    .spinner_piVe {
+      animation-delay: -1s;
+    }
+
+    .spinner_MSNs {
+      animation-delay: -1.5s;
+    }
+
+    @keyframes spinner_qtyZ {
+      0% {
+        r: 0;
+      }
+
+      25% {
+        r: 4px; /* Decreased from 6px */
+        cx: 8px;
+      }
+
+      50% {
+        r: 4px; /* Decreased from 6px */
+        cx: 24px;
+      }
+
+      75% {
+        r: 4px; /* Decreased from 6px */
+        cx: 40px;
+      }
+
+      100% {
+        r: 0;
+        cx: 40px;
+      }
+    }
+  </style>
+  <circle class="spinner_nOfF" cx="8" cy="12" r="4" /> <!-- Decreased from 6 to 4 -->
+  <circle class="spinner_nOfF spinner_fVhf" cx="24" cy="12" r="4" /> <!-- Decreased from 6 to 4 -->
+  <circle class="spinner_nOfF spinner_piVe" cx="40" cy="12" r="4" /> <!-- Decreased from 6 to 4 -->
+  <circle class="spinner_nOfF spinner_MSNs" cx="56" cy="12" r="4" /> <!-- Decreased from 6 to 4 -->
+</svg>

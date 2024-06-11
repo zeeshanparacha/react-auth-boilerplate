@@ -5,7 +5,14 @@ import { ReactComponent as CROSS } from "../../assets/svgs/cross.svg";
 import { ReactComponent as CHECK } from "../../assets/svgs/check.svg";
 import styles from "./styles.module.css";
 
-const Password = ({ onChange, value, name, enableValidations }) => {
+const Password = ({
+  onChange,
+  value,
+  name,
+  enableValidations,
+  error,
+  onFocus,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const [validations, setValidations] = useState({
     length: {
@@ -51,7 +58,7 @@ const Password = ({ onChange, value, name, enableValidations }) => {
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={`${styles.container} ${error[name] && styles.error}`}>
         <input
           type={`${isOpen ? "text" : "password"}`}
           onChange={_handleChange}
@@ -59,18 +66,21 @@ const Password = ({ onChange, value, name, enableValidations }) => {
           name={name}
           className={styles.password}
           autoComplete="new-password"
+          onFocus={onFocus}
         />
 
         <span onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <EYE_OPEN /> : <EYE_CLOSED />}
         </span>
+
+        {!enableValidations && error[name] && <p>{error[name]}</p>}
       </div>
 
       {enableValidations && (
         <div className={styles.validation_container}>
-          {Object.keys(validations).map((element) => {
+          {Object.keys(validations).map((element,index) => {
             return (
-              <div className={styles.validations}>
+              <div className={styles.validations} key={index}>
                 {validations[element].isValid ? (
                   <CHECK className={styles.check} />
                 ) : (

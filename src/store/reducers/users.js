@@ -1,18 +1,18 @@
 import * as constants from "../contants/users";
 
 const INITIAL_STATE = {
-  users: [],
+  user: {},
   loading: false,
   error: "",
-  success: ""
 };
 
 export const users = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case constants.LOADING: return { ...state, loading: true };
-    case constants.FETCH_USERS: return { ...state, users: action.payload, loading: false };
-    case constants.SUCCESS: return { ...state, loading: false, success: action.payload };
+    case constants.SIGN_IN: return { ...state, user: action.payload, loading: false };
+    case constants.SIGN_UP: return { ...state, user: action.payload, loading: false };
     case constants.ERROR: return { ...state, loading: false, error: action.payload };
+    case constants.CLEAR: return { ...INITIAL_STATE };
     default:
       return state;
   }

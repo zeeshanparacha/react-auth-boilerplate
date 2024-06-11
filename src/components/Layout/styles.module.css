@@ -23,7 +23,6 @@
   align-items: center;
 }
 
-
 .branding {
   font-size: 20px;
   font-weight: 700;
@@ -33,4 +32,25 @@
 .logo {
   width: 130px;
   height: 130px;
+}
+
+.layout_container nav {
+  position: absolute;
+  width: -webkit-fill-available;
+  top: 0;
+  display: flex;
+  justify-content: end;
+  padding: 12px 22px;
+}
+
+.layout_container nav svg {
+  width: 18px;
+  margin-right: 1px;
+}
+.layout_container nav p {
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+  font-weight: 600;
+  cursor: pointer;
 }

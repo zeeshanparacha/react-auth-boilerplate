@@ -1,5 +1,6 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route } from 'react-router-dom';
+import ProtectedRoute from "./protected-route";
 
 const DashboardPage = lazy(() => import("./dashboard.route"));
 const SignInPage = lazy(() => import("./sign-in.route"));
@@ -12,7 +13,7 @@ export const AppRouter = () => {
       <Routes>
         <Route exact path='/' element={<SignInPage />} />
         <Route exact path='/sign-up' element={<SignUpPage />} />
-        <Route exact path='/home' element={<DashboardPage />} />
+        <Route exact path="/dashboard" element={<ProtectedRoute element={<DashboardPage />} />} />
       </Routes>
     </Suspense>
   )

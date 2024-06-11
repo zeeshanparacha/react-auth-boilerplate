@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    padding: 12px 15px;
+    border-radius: 10px;
+    align-items: center;
+    width: 100%;
+
+    font-size: 14px;
+}
+
+.container > span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px !important;
+}
+
+.success {
+    background-color: #1ffd3e45;
+    color: #2b8319;
+}
+
+.error {
+    background-color: #FCEDED;
+    color: #A31B1E;
+}

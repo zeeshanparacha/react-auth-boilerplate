@@ -1,6 +1,12 @@
 .container {
   position: relative;
 }
+.container p {
+  font-size: 11px;
+  margin-top: 7px;
+  color: #ce4546;
+  margin-left: 2px;
+}
 
 .password {
   height: 45px;
@@ -13,19 +19,19 @@
 }
 
 .password:focus {
-  border-color: #fc794b;
+  border-color: #6f6d6c7d;
 }
 
+.error .password,
+.error .password:focus {
+  border-color: #ce454699;
+}
 .container span {
   position: absolute;
   right: 15px;
   top: 3px;
   font-size: 22px;
   cursor: pointer;
-}
-
-.validation_container {
-  margin-top: -10px;
 }
 
 .validation_container .check {
@@ -39,7 +45,7 @@
   width: 8px;
   height: 8px;
   margin-right: 6px;
-  fill: red;
+  fill: #ce4546;
 }
 
 .validations {

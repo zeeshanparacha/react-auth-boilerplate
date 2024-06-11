@@ -1,7 +1,12 @@
 import * as constants from "../contants/users";
 
-export const fetchUsers = (data) => ({
-  type: constants.FETCH_USERS,
+export const signIn = (data) => ({
+  type: constants.SIGN_IN,
+  payload: data
+})
+
+export const signUp = (data) => ({
+  type: constants.SIGN_UP,
   payload: data
 })
 
@@ -15,7 +20,7 @@ export const error = (message) => ({
   payload: message
 })
 
-export const success = (message) => ({
-  type: constants.SUCCESS,
-  payload: message
+export const clear = () => ({
+  type: constants.CLEAR,
+
 })
